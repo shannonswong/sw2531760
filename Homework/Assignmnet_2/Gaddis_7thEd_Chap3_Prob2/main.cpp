@@ -16,7 +16,7 @@ using namespace std;
  * 
  * //Function Prototypes
  * 
- * //Let the Execution Games...Begin! 
+ * //Execution 
  */
 
 int main(int argc, char** argv) {
