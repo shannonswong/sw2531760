@@ -40,6 +40,8 @@ int main(int argc, char** argv) {
     else if (books >= 4)
         cout<<"Points Earned: 60"; 
 
+ //That's all, folks!
+    
     return 0;
 }
 

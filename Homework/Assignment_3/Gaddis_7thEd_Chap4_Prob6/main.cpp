@@ -37,6 +37,8 @@ int main(int argc, char** argv) {
   else 
       cout<<"Weight in Newtons: "<<weight<<" N"<<endl; 
     
+ //That's all, folks!
+  
     return 0;
 }
 
