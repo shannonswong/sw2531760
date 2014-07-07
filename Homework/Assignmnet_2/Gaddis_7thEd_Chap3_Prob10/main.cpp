@@ -10,9 +10,15 @@
 
 using namespace std;
 
-/*
+/* //User Defined Libraries
  * 
+ * //Global Constants
+ * 
+ * //Function Prototypes
+ * 
+ * //Execution
  */
+
 int main(int argc, char** argv) {
     
 //Declare Variables

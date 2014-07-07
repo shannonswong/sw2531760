@@ -22,18 +22,17 @@ using namespace std;
 int main(int argc, char** argv) {
 
 //Declare Variables   
-    const int gallons;
-    const int miles; 
+    float gallons, miles, mpg; 
     
 //Input the Data
-    cout<<"How many gallons of gas can your car hold?">>endl;
+    cout<<"How many gallons of gas can your car hold? ";
     cin>>gallons;
     
-    cout<<"How many miles can you car travel on a full tank of gas?">>endl;
+    cout<<"How many miles can you car travel on a full tank of gas? ";
     cin>>miles;
 
 //Output the Data
-    int mpg = miles / gallons;
+    mpg = miles / gallons;
     cout<<"Your Car's MPG: "<<mpg<<endl;
     
     
