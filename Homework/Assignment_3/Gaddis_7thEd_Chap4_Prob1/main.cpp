@@ -33,10 +33,9 @@ int main(int argc, char** argv) {
         cout<<num1<<" is larger than "<<num2<<"."<<endl;
     else if (num2 > num1)
         cout<<num2<<" is larger and than "<<"."<<endl;
-   
-    
-    
 
+//That's all, folks!
+    
     return 0;
 }
 
