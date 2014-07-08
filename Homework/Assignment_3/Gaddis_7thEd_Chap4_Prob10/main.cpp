@@ -24,16 +24,9 @@ int main(int argc, char** argv) {
 //Declare Variables
     int pkg;         //user inputs amount of packages purchased 
     float value = 99;
-    float price = value * pkg;
     
-    float discount1 = price * 0.2; 
-    float fprice1 = price - discount1;
-    float discount2 = price * 0.3; 
-    float fprice2 = price - discount2;
-    float discount3 = price * 0.4; 
-    float fprice3 = price - discount3;
-    float discount4 = price * 0.5; 
-    float fprice4 = price - discount4;
+   
+    
     
     
 //Input Number of Units
@@ -45,24 +38,33 @@ int main(int argc, char** argv) {
 //Compute Discount
     if (pkg>=10 || pkg<=19)
          {
-        cout<<"Final Price Including Discount: $"<<fprice1<<endl;
+         float price = value * pkg;
+         float discount = price * 0.2; 
+         float fprice = price - discount;
+        cout<<"Final Price Including Discount: $"<<fprice<<endl;
          }
         
     else if (pkg>=20 || pkg<=49)
          {
-   
+        float price = value * pkg;
+        float discount = price * 0.3; 
+        float fprice2 = price - discount;
         cout<<"Final Price Including Discount: $"<<fprice2<<endl;
          }
 
     else if (pkg>=50 || pkg<=99)
          {
-      
-        cout<<"Final Price Including Discount: $"<<fprice3<<endl;
+         float price = value * pkg;
+         float discount = price * 0.4; 
+         float fprice3 = price - discount;
+         cout<<"Final Price Including Discount: $"<<fprice3<<endl;
          } 
     else if (pkg>=100)
          {  
-      
-        cout<<"Final Price Including Discount: $"<<fprice4<<endl;
+         float price = value * pkg;
+         float discount = price * 0.5; 
+         float fprice4 = price - discount;
+         cout<<"Final Price Including Discount: $"<<fprice4<<endl;
          } 
     else 
          { 
