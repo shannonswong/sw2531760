@@ -321,12 +321,68 @@ int main(int argc, char** argv) {
         }
         
         case '8':{
-            cout<<"Solution to Problem 1"<<endl;
+        //Problem 14: BMI
+        //Declare Variables
+                float weight, height;
+                float bmi;
+
+        //Prompt User to Input Weight and Height
+                cout<<"BMI Calculator."<<endl;
+                cout<<"Enter Your Weight in Pounds:"<<endl;
+                cin>>weight;
+                cout<<"Enter Your Height in Inches:"<<endl;
+                cin>>height;
+
+        //Calculate BMI
+                bmi = weight * 703/(height*height);
+
+        //Determine Meaning of BMI
+                if (bmi >= 25)
+
+                                cout<<"According to your BMI of "<<bmi
+                                        <<", you are: overweight."<<endl;
+
+
+                else if (bmi<= 25 && bmi>= 18.5)
+
+                                cout<<"According to your BMI of "<<bmi
+                                        <<", you are of optimal weight."<<endl;
+
+
+                else if (bmi<= 18.5)
+
+                                cout<<"According to your BMI of "<<bmi
+                                        <<", you are: underweight."<<endl;
+ 
         break;  
         }
         
         case '9':{
-            cout<<"Solution to Problem 1"<<endl;
+        //Problem 15: Fat Gram Calculator
+        //Declare Variables
+                float cal, fat;  //user inputs amnt calories and fat in a food
+
+        //Prompt User to Input Calories and Fat in a Food
+                cout<<"Fat Gram Calculator"<<endl;
+                cout<<"Enter Amount of Calories in the Food."<<endl;
+                cin>>cal;
+                cout<<"Enter Amount of Fat in Grams in the Food."<<endl;
+                cin>>fat; 
+
+        //Calculate
+                float fatcal = fat * 9;  //calories from fat
+                float totcal = fatcal + cal;  //total calories of food
+                float perct = fatcal / totcal;  //percent calories from fat from food
+
+        //Is it low-fat? low-fat is less than 30%
+                if (perct<= 0.3)
+                        cout<<"The food is low in fat."<<endl;
+                else if (perct>= 0.3)
+                        cout<<"The food is not low in fat."<<endl;
+                else if (fat<= 0 || cal<=0)
+                        cout<<"Invalid values. Please enter values greater than 0."<<endl;
+                else if (fatcal >= totcal)
+                        cout<<"Calories from fat cannot be greater than total calories."<<endl;
         break;  
         }
         
