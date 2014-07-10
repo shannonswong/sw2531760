@@ -1,5 +1,5 @@
 /* 
- * File:   main.cpp
+ * File:   Assignment 3_Gaddis_7thEd
  * Author: Shannon Wong
  * Purpose: menu for assignment 3
  * Created on July 7, 2014, 6:25 PM
@@ -34,8 +34,8 @@ int main(int argc, char** argv) {
     cout<<"Type 5 For Problem 7"<<endl;
     cout<<"Type 6 For Problem 11"<<endl;
     cout<<"Type 7 For Problem 9"<<endl;
-    cout<<"Type 8 For Problem 13"<<endl;
-    cout<<"Type 9 For Problem 14"<<endl;
+    cout<<"Type 8 For Problem 14"<<endl;
+    cout<<"Type 9 For Problem 15"<<endl;
     
 //Input Choice
     cin>>choice;
