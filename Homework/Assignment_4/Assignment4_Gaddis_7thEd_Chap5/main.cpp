@@ -74,7 +74,24 @@ int main(int argc, char** argv) {
                 cout<<result; 
                 break;
             }case '2':{
-              
+            //Problem 3: Distance Traveled
+            //Declare Variables
+                int speed, time;
+
+            //Input Data
+                cout<<"Enter the speed of the vehicle in MPH."<<endl;
+                cin>>speed;
+                cout<<"Enter the time in hours the vehicle traveled."<<endl;
+                cin>>time;
+
+            //Chart Setup
+                cout<<"Hours    Distance \n"
+                    <<"-------------------"<<endl; 
+
+            //Calculations
+                for (int i=1; i<=time; i++) {
+                    cout<<i<<"\t"<<speed*i<<endl;
+                }  
                 break;         
             }case '3':{
                 cout<<"Problem B here!"<<endl<<endl;
