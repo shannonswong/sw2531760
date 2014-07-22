@@ -432,7 +432,7 @@ int option2e(){
 
 //Room E Option 3: Incorrect
 int option3e(){
-    cout<<"You chose the middle door."<<endl;
+    cout<<"You chose the door on the right."<<endl;
     cout<<"You approach the door and unfortunately, you have chosen incorrectly."<<endl;
     cout<<"You fall down a large chute and you are back where you started."<<endl;
     char anything;
