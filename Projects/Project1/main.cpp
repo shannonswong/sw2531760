@@ -45,7 +45,6 @@ int option1e(); //option 1 room E
 int option2e(); //option 2 room E
 int option3e(); //option 3 room E
 int youwin(); //the end
-
 int gameover(); //game over
 
 //Execution Begins Here: 
@@ -248,14 +247,17 @@ int dicegame(){
     	cin>>anything; 
     	anything = roomC(); 
     }
-    else cout<<"Sorry. You did not win."<<endl;
+    else if (loss>wins){ 
+        cout<<"Sorry. You did not win."<<endl;
         cout<<"You must return to the previous room."<<endl;
     	cout<<"Type anything to proceed."<<endl;
     	char anything2;
     	cin>>anything2;
-    	anything2 = roomA();  
+    	anything2 = roomA();
+    }
+    
 }
-
+ 
 //Room B Option 3: Incorrect
 int option3b(){
     cout<<"You choose the door on the right."<<endl;
