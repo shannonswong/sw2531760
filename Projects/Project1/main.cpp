@@ -16,24 +16,23 @@ using namespace std;
 
 
 //Function Prototypes
-void roomA(); //room A
+int roomA(); //room A
 int getA(); //room A
 void def(int); //default
 int option1a(); //option 1 room A
-void option2a(); //option 2 room A
-void option3a(); //option 3 room A
+int option2a(); //option 2 room A
+int option3a(); //option 3 room A
 int roomB(); //room B
 int getB(); //room B
 int option1b(); //option 1 room B
-void coinflip(); //coin flip for option 1 room B
-void option2b(); //option 2 room B
-int dicegame(); 
-void option3b(); //option 3 room B
-void roomC(); //room C
+int option2b(); //option 2 room B
+int dicegame(); //dice game for option2 room B
+int option3b(); //option 3 room B
+int roomC(); //room C
 int getC(); //room C
 int option1c(); //option 1 room C
-void option2c(); //option 2 room C
-void option3c(); //option 3 room C
+int option2c(); //option 2 room C
+int option3c(); //option 3 room C
 
 int gameover(); 
 
@@ -70,7 +69,7 @@ int inB;
 }
 
 //Room A Menu
-void roomA(){
+int roomA(){
     cout<<"You are suddenly put into room that is empty except for two doors"
             "along the same wall. \nThey both appear to be the same--mahogany "
             "with brass doorknobs. \nWhat do you do next?"<<endl;
@@ -116,7 +115,7 @@ int option1a(){
 }
 
 //Room A Option 2: The incorrect door 
-void option2a(){
+int option2a(){
     cout<<"You choose the door on the right."<<endl;
     cout<<"Unfortunately, when you go to open the door, you fall into a large"
             "chute and end up where you started."<<endl;
@@ -128,55 +127,8 @@ void option2a(){
         }
 }
 
-int option2b(){
-	cout<<"You chose the middle door."<<endl;
-	cout<<"Looks like you're correct. A screen lowers from the ceiling."<<endl;
-	cout<<"It says: 'It's time for a simple game.'"<<endl;
-	cout<<"A dice-rolling contraption comes out of the door."<<endl;
-	cout<<"'If you an even number within 10 games, you may proceed. It's a"
-			"terribly simple game of chance."<<endl;
-	cout<<"'Go ahead and roll the dice."<<endl;
-	char roll;
-	cin>>roll;
-	roll = dicegame();
-}	
- 
-int dicegame(){ 
-//Declare variables
-	int wins=0, loss=0; 
-	for(int game=1;game<=10;game++){
-        //Throw the dice
-        char die1=rand()%6+1;
-        char die2=rand()%6+1;
-        char sum1=die1+die2;
-        switch(sum1){
-            case 2:case 4:case 6: case 8: case 10: case 12:{
-                wins++;break;
-            }default:{
-               loss++;break;
-            }
-        }
-    }
-    //Output the results
-    cout<<"Number of Games won = "<<wins<<endl;
-    cout<<"Number of Games lost = "<<loss<<endl;
-    //Outcome
-    if (wins>loss){
-    	cout<<"Congratulations. You may proceed."<<endl;
-    	cout<<"Type anything to proceed."<<endl;
-    	char anything;
-    	cin>>anything; 
-    	anything = roomC(); 
-    }
-    else cout<<"Sorry. You did not win."<<endl;
-    	cout<<"Type anything to proceed."<<endl;
-    	char anything;
-    	cin>>anything;
-    	anything = gameover();  
-}
-
 //Room A Option 3: I'm not sure why this is here but hey
-void option3a(){
+int option3a(){
     cout<<"You give up."<<endl;
     cout<<"Type anything."<<endl; 
     char answer;
@@ -209,30 +161,69 @@ int option1b(){ //left door incorrect
 	cout<<"You approach the door and unfortunately, you have chosen incorrectly."<<endl;
 	cout<<"You fall down a large chute and you are back where you started."<<endl;
 	char anything;
-	cout<<"Type anything to continue."<<<endl;
+	cout<<"Type anything to continue."<<endl;
 	cin>>anything; 
 	anything = gameover(); 
 }
 
-//Simple heads or tails function
-void coinflip(){
-    
-    //Determine if a flip of a coin is heads or tails
-    bool heads=rand()%2;//Remainder 0,1
-    
-    //Output the result
-    if(heads)cout<<"Heads flipped"<<endl;
-    else cout<<"Tails flipped"<<endl;
-}
-
-//Room B Option 2
-void option2b(){
-    cout<<endl; 
+int option2b(){
+	cout<<"You chose the middle door."<<endl;
+	cout<<"Looks like you're correct. A screen lowers from the ceiling."<<endl;
+	cout<<"It says: 'It's time for a simple game.'"<<endl;
+	cout<<"A dice-rolling contraption comes out of the door."<<endl;
+	cout<<"'If you an even number within 10 games, you may proceed. It's a"
+			"terribly simple game of chance."<<endl;
+	cout<<"'Go ahead and roll the dice."<<endl;
+	char roll;
+	cin>>roll;
+	roll = dicegame();
+}	
+ 
+int dicegame(){ 
+//Declare variables
+	int wins=0, loss=0; 
+	for(int game=1;game<=10;game++){
+        //Throw dice
+        char die1=rand()%6+1;
+        char die2=rand()%6+1;
+        char sum1=die1+die2;
+        switch(sum1){
+            case 2:case 4:case 6: case 8: case 10: case 12:{
+                wins++;break;
+            }default:{
+               loss++;break;
+            }
+        }
+    }
+    //Output the results
+    cout<<"Number of Games won = "<<wins<<endl;
+    cout<<"Number of Games lost = "<<loss<<endl;
+    //Outcome
+    if (wins>loss){
+    	cout<<"Congratulations. You may proceed."<<endl;
+    	cout<<"Type anything to proceed."<<endl;
+    	char anything;
+    	cin>>anything; 
+    	anything = roomC(); 
+    }
+    else cout<<"Sorry. You did not win."<<endl;
+    	cout<<"Type anything to proceed."<<endl;
+    	char anything;
+    	cin>>anything;
+    	anything = roomA();  
 }
 
 //Room B Option 3
-void option3b(){
-    cout<<endl; 
+int option3b(){
+    cout<<"You choose the door on the right."<<endl;
+    cout<<"Type anything."<<endl;
+    char anything;
+    cin>>anything;
+    anything = gameover(); 
+}
+
+int roomC(){
+    cout<<endl;
 }
 
 void def(int inA){
@@ -245,7 +236,6 @@ int gameover(){
     cin>>answer;
         if (answer == 'Y' || answer == 'y'){
             answer = main(); 
-        }
-    
+        } 
     return 0; 
 }
