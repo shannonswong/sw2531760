@@ -27,6 +27,7 @@ int getB(); //room B
 int option1b(); //option 1 room B
 void coinflip(); //coin flip for option 1 room B
 void option2b(); //option 2 room B
+int dicegame(); 
 void option3b(); //option 3 room B
 void roomC(); //room C
 int getC(); //room C
@@ -34,7 +35,7 @@ int option1c(); //option 1 room C
 void option2c(); //option 2 room C
 void option3c(); //option 3 room C
 
-int theexit(); //exit the game
+int gameover(); 
 
 //Execution Begins Here: 
 int main() {
@@ -127,15 +128,60 @@ void option2a(){
         }
 }
 
+int option2b(){
+	cout<<"You chose the middle door."<<endl;
+	cout<<"Looks like you're correct. A screen lowers from the ceiling."<<endl;
+	cout<<"It says: 'It's time for a simple game.'"<<endl;
+	cout<<"A dice-rolling contraption comes out of the door."<<endl;
+	cout<<"'If you an even number within 10 games, you may proceed. It's a"
+			"terribly simple game of chance."<<endl;
+	cout<<"'Go ahead and roll the dice."<<endl;
+	char roll;
+	cin>>roll;
+	roll = dicegame();
+}	
+ 
+int dicegame(){ 
+//Declare variables
+	int wins=0, loss=0; 
+	for(int game=1;game<=10;game++){
+        //Throw the dice
+        char die1=rand()%6+1;
+        char die2=rand()%6+1;
+        char sum1=die1+die2;
+        switch(sum1){
+            case 2:case 4:case 6: case 8: case 10: case 12:{
+                wins++;break;
+            }default:{
+               loss++;break;
+            }
+        }
+    }
+    //Output the results
+    cout<<"Number of Games won = "<<wins<<endl;
+    cout<<"Number of Games lost = "<<loss<<endl;
+    //Outcome
+    if (wins>loss){
+    	cout<<"Congratulations. You may proceed."<<endl;
+    	cout<<"Type anything to proceed."<<endl;
+    	char anything;
+    	cin>>anything; 
+    	anything = roomC(); 
+    }
+    else cout<<"Sorry. You did not win."<<endl;
+    	cout<<"Type anything to proceed."<<endl;
+    	char anything;
+    	cin>>anything;
+    	anything = gameover();  
+}
+
 //Room A Option 3: I'm not sure why this is here but hey
 void option3a(){
     cout<<"You give up."<<endl;
-    cout<<"GAME OVER. Do you want to try again? (Y/N)"<<endl; 
+    cout<<"Type anything."<<endl; 
     char answer;
     cin>>answer;
-        if (answer == 'Y' || answer == 'y'){
-            answer = main(); 
-        }
+    answer = gameover(); 
 }
 
 //Room B Menu 
@@ -158,21 +204,14 @@ int getB(){
 }
 
 //Room B Option 1
-int option1b(){
-    cout<<"You chose the left door, again."<<endl;
-    cout<<"A screen lowers from the ceiling."<<endl;
-    cout<<"It says: 'Hello. This is a game of chance. \nIf the odds are in your"
-            "favor, then you may proceed."<<endl;
-    cout<<"You must flip more HEADs than TAILs out of 15 flips. Good luck."<<endl;
-    //Coin Flip
-    //Set the Random number seed
-    srand(static_cast<unsigned int>(time(0)));
-    
-    //Loop on function call, flip a coin 10 times
-    for(int i=1;i<=15;i++){
-        coinflip();
-    }
-    return 0;
+int option1b(){ //left door incorrect
+	cout<<"You chose the left door."<<endl;
+	cout<<"You approach the door and unfortunately, you have chosen incorrectly."<<endl;
+	cout<<"You fall down a large chute and you are back where you started."<<endl;
+	char anything;
+	cout<<"Type anything to continue."<<<endl;
+	cin>>anything; 
+	anything = gameover(); 
 }
 
 //Simple heads or tails function
@@ -200,7 +239,13 @@ void def(int inA){
     cout<<"You exited the game."<<endl;
 }
 
-int theexit(){
-    cout<<"Goodbye"<<endl;
+int gameover(){
+    cout<<"GAME OVER. Do you want to try again? (Y/N)"<<endl; 
+    char answer;
+    cin>>answer;
+        if (answer == 'Y' || answer == 'y'){
+            answer = main(); 
+        }
+    
     return 0; 
 }
