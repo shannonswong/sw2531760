@@ -10,6 +10,7 @@
 #include <iostream>
 #include <iomanip>
 #include <ctime>
+#include <cmath>
 using namespace std;
 
 //Global Constants
@@ -425,9 +426,21 @@ int option1e(){
 
 //Room E Option 2: Correct
 int option2e(){
-    float thing; 
+    float response;
+    float degF = 9*23.0/5.0+32.0;
     cout<<"Correct door."<<endl;
-    cout<<"Solve:"; 
+    cout<<"The screen says: 'So, do you know how to convert 23 degrees"
+            "Celsius to degrees Fahrenheit? Then please do so now."<<endl;
+    cin>>response; 
+    cout<<"Answer: "<<degF<<endl;
+    if (response == degF){
+        cout<<"Correct. Proceed"<<endl;
+        youwin();
+    }
+    else {
+        cout<<"Incorrect. Start from previous room."<<endl;
+        roomD(); 
+    }
 }
 
 //Room E Option 3: Incorrect
@@ -444,7 +457,7 @@ int option3e(){
 //The End--You Win
 int youwin(){
     cout<<"Congrats. You made it to the end. Now, what?"<<endl;
-    return 0; 
+    exit(0); 
 }
 
 //Game Over
@@ -456,11 +469,12 @@ int gameover(){
             answer = main(); 
         }
         if (answer != 'y' && answer != 'Y')
-            cout<<"Goodbye"<<endl; 
-    return 0; 
+            cout<<"Goodbye."<<endl; 
+    exit(0); 
 }
 
 //Default 
 void def(int inA){
     cout<<"You exited the game."<<endl;
+    exit(0);
 }
