@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin_4.x-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin_4.x-Windows
-CND_ARTIFACT_NAME_Debug=gaddis_7thed_chap6_prob1
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/gaddis_7thed_chap6_prob1
+CND_ARTIFACT_NAME_Debug=gaddis_7thed_chap6_assignment5menu
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/gaddis_7thed_chap6_assignment5menu
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin_4.x-Windows/package
-CND_PACKAGE_NAME_Debug=gaddis7thedchap6prob1.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/package/gaddis7thedchap6prob1.tar
+CND_PACKAGE_NAME_Debug=gaddis7thedchap6assignment5menu.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/package/gaddis7thedchap6assignment5menu.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin_4.x-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin_4.x-Windows
-CND_ARTIFACT_NAME_Release=gaddis_7thed_chap6_prob1
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin_4.x-Windows/gaddis_7thed_chap6_prob1
+CND_ARTIFACT_NAME_Release=gaddis_7thed_chap6_assignment5menu
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin_4.x-Windows/gaddis_7thed_chap6_assignment5menu
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin_4.x-Windows/package
-CND_PACKAGE_NAME_Release=gaddis7thedchap6prob1.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin_4.x-Windows/package/gaddis7thedchap6prob1.tar
+CND_PACKAGE_NAME_Release=gaddis7thedchap6assignment5menu.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin_4.x-Windows/package/gaddis7thedchap6assignment5menu.tar
 #
 # include compiler specific variables
 #
