@@ -7,6 +7,7 @@
 //System Libraries
 #include <cstdlib>
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 //User Defined Libraries
@@ -28,8 +29,8 @@ void problem8();
 void problem9();
 void problem10();
 void calculateRetail(float);
-int celsius(float);
-void fallinDistance(float);
+float celsius(float);
+float fallingDistance(float);
 
 //Execution Begins Here
 int main(int argc, char** argv) {
@@ -95,24 +96,33 @@ int problem1(){
     return 0; 
 }
 
-int celsius(float fahr){
-    cout<<((5.0/9.0)*(fahr-32.0))<<endl;
+float celsius(float i){
+    return (i-32)*(5.0/9.0); 
 }
 
 int problem2(){
 //Problem 2: Celsius Temperature Table
-    //Declare Variables
-  
+    cout<<"Fahrenheit \t\tCelsius"<<endl;
     //Loop
-    for(int i=20;i>=0;i--){ 
-        cout<<i;
-        float degrees = i; 
-        celsius(i)<<endl;
-        cout<<endl;
+    for(int i=0;i<=20;i++){ 
+        cout<<i<<"\t\t"<<celsius(i)<<endl;
     }
+    return 0; 
 }
-void problem3(){
+
+float fallingDistance(float time){
+    float g = 9.8; 
+    return 0.5*g*(time*time);
     
+}
+
+void problem3(){
+    cout<<"Formula: d=1/2gt^2"<<endl;
+    cout<<"Calculate Distance from Times 1 through 10."<<endl; 
+    cout<<"Time(s): \t\tDistance(m):"<<endl; 
+    for (int i=1; i<=10; i++){
+        cout<<i<<"\t\t"<<fallingDistance(i)<<endl;
+    }
 }
 void problem4(){
     
