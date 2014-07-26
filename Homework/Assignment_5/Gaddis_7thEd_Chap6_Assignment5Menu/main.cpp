@@ -31,6 +31,7 @@ void problem10();
 void calculateRetail(float);
 float celsius(float);
 float fallingDistance(float);
+float kineticEnergy (float); 
 
 //Execution Begins Here
 int main(int argc, char** argv) {
@@ -78,6 +79,7 @@ int getN(){
 }
 
 void calculateRetail(float items, float perct){
+//Problem 1 Retail Price Calculation
     cout<<"The retail price is $"<<( items + (items*perct/100))<<endl; 
 }
 
@@ -97,35 +99,51 @@ int problem1(){
 }
 
 float celsius(float i){
+//Conversion for Problem 2: fahrenheit to celsius
     return (i-32)*(5.0/9.0); 
 }
 
 int problem2(){
 //Problem 2: Celsius Temperature Table
-    cout<<"Fahrenheit \t\tCelsius"<<endl;
+    cout<<"Fahrenheit \t\tCelsius"<<endl; //display table
     //Loop
-    for(int i=0;i<=20;i++){ 
-        cout<<i<<"\t\t"<<celsius(i)<<endl;
+    for(int i=0;i<=20;i++){ //loop 0 to 20 
+        cout<<i<<"\t\t"<<celsius(i)<<endl; //call conversion function
     }
     return 0; 
 }
 
 float fallingDistance(float time){
-    float g = 9.8; 
-    return 0.5*g*(time*time);
-    
+//Conversion Function for Problem 3
+    float g = 9.8; //constant g 
+    return 0.5*g*(time*time); //calculate and display distance
 }
 
 void problem3(){
+//Problem 3: Falling Distance
     cout<<"Formula: d=1/2gt^2"<<endl;
-    cout<<"Calculate Distance from Times 1 through 10."<<endl; 
+    cout<<"Calculate Distance from Times 1 through 10."<<endl; //display table
     cout<<"Time(s): \t\tDistance(m):"<<endl; 
-    for (int i=1; i<=10; i++){
-        cout<<i<<"\t\t"<<fallingDistance(i)<<endl;
+    for (int i=1; i<=10; i++){ //loop 1 to 10
+        cout<<i<<"\t\t"<<fallingDistance(i)<<endl; //call formula function
     }
 }
+
+float kineticEnergy(float kg, float ms){ //ms means m/s 
+//Problem 4: calculate kinetic energy
+    cout<<"Kinetic Energy(j):"<<0.5*kg*ms*ms<<endl;
+}
+
 void problem4(){
-    
+//Problem 4: Kinetic Energy
+    float mass, velocity; 
+    cout<<"Formula: KE=1/2mv^2"<<endl;
+    cout<<"Calculate the Object's Kinetic Energy."<<endl;
+    cout<<"Enter the object's mass."<<endl;
+    cin>>mass;
+    cout<<"Enter the object's velocity."<<endl;
+    cin>>velocity; 
+    kineticEnergy(mass, velocity); 
 }
 void problem5(){
     
