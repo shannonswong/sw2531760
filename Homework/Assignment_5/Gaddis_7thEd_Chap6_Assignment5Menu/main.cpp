@@ -37,8 +37,8 @@ float presentValue(float);
 float stockProfit();
 float hospital();
 float nPopSize();
-int orderInfo();
-int orderStatus();
+float numYears(); 
+float popSize(); 
 
 //Execution Begins Here
 int main(int argc, char** argv) {
@@ -306,18 +306,37 @@ float nPopSize(float p, float b, float d, float y){
  }
 
 void problem10(){
-//Problem 13: Order Status
+//Problem 16: Transient Population 
     //Declare Variables
-    
+    float start, birth, death, years, im, em; 
+    //Input
+    cout<<"Enter the starting size of the population."<<endl;
+    cin>>start;
+    cout<<"Enter the birth rate."<<endl;
+    cin>>birth;
+    cout<<"Enter the death rate."<<endl;
+    cin>>death;
+    cout<<"Enter the years to display."<<endl;
+    cin>>years; 
+    cout<<"Enter average yearly immigration."<<endl;
+    cin>>im;
+    cout<<"Enter average yearly emigration."<<endl;
+    cin>>em; 
+    numYears(start, birth, death, years); 
 }
 
-int orderInfo(){
-//Problem 13 ask for and store order data function
-    
-}
-
-int orderStatus(){
-//Problem 13 compute and display order info function   
+float numYears(float p2, float b2, float d2, float y2, float im, float em){
+//Problem 16 new population calculation 
+    if (p2<=2 || y2<=1){
+        cout<<"Invalid input. Start population must be greater than 2"
+                "\nand years displayed must be greater than 1."<<endl;
+    }
+    else {
+        float newpop = p2*((1+b2)*(1-d2));
+        float total = y2*newpop;
+        float newtot = total + im - em;
+        cout<<"Population: "<<newtot<<endl; 
+    }
 }
 
 void def(int inN){
