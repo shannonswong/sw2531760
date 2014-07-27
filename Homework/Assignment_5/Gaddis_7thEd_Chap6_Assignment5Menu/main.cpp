@@ -35,6 +35,8 @@ float kineticEnergy (float);
 bool isPrime(int); 
 float presentValue(float);
 float stockProfit();
+float hospital();
+int nPopSize();
 
 //Execution Begins Here
 int main(int argc, char** argv) {
@@ -218,14 +220,79 @@ void problem7(){
     cin>>sp;
     cout<<"Enter the sale commission."<<endl;
     cin>>sc; 
-    stockProfit(ns, pp, pc, sp, sc); 
-    
+    stockProfit(ns, pp, pc, sp, sc);   
 }
+
+float hospital(float d, float r, float s, float m){
+    float daily = d*r; 
+    float total = daily + s + m; 
+    cout<<"Total: $"<<total<<endl;
+}
+
+float hospital(float service, float meds){
+    float total = service + meds;
+    cout<<"Total: $"<<total<<endl; 
+}
+
 void problem8(){
-    
+//Problem 14: Overloaded Hospital
+    //Declare Variables
+    char patient;
+    //Menu for User
+    cout<<"Is the patient an..."<<endl;
+    cout<<"A) in-patient"<<endl;
+    cout<<"or an"<<endl;
+    cout<<"B) out-patient"<<endl;
+    cin>>patient; 
+    if (patient=='a' || patient=='A'){
+        //Declare Variables
+        float days, rate, service, meds; 
+        cout<<"Enter the number of days spent in hospital."<<endl;
+        cin>>days;
+        cout<<"Enter the daily rate."<<endl;
+        cin>>rate;
+        cout<<"Enter the charges for hospital services."<<endl;
+        cin>>service;
+        cout<<"Enter hospital medication charges."<<endl;
+        cin>>meds;
+        hospital(days, rate, service, meds); 
+    }
+    else if (patient=='b' || patient=='B'){
+        //Declare Variables
+        float service, meds;
+        cout<<"Enter the charges for hospital services."<<endl;
+        cin>>service;
+        cout<<"Enter hospital medication charges."<<endl;
+        cin>>meds;
+        hospital(service, meds);
+    }
+    else cout<<"Invalid Input."<<endl; 
 }
+int nPopSize(float p, float b, float d, float y){
+    if (p<=2 || y<=1){
+        cout<<"Invalid input. Start population must be greater than 2"
+                "\nand years displayed must be greater than 1."<<endl;
+    }
+    else {
+        float newpop = p*((1+b)*(1-d));
+        float total = y*newpop;
+        cout<<"New Population for "<<y<<" years:"<<total<<endl; 
+    }
+ }
+
 void problem9(){
-    
+    //Declare Variables
+    float start, birth, death, years; 
+    //Input
+    cout<<"Enter the starting size of the population."<<endl;
+    cin>>start;
+    cout<<"Enter the birth rate."<<endl;
+    cin>>birth;
+    cout<<"Enter the death rate."<<endl;
+    cin>>death;
+    cout<<"Enter the years to display."<<endl;
+    cin>>years; 
+    nPopSize(start, birth, death, years); 
 }
 void problem10(){
     
