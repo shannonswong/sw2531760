@@ -33,6 +33,7 @@ float celsius(float);
 float fallingDistance(float);
 float kineticEnergy (float); 
 bool isPrime(int); 
+float presentValue(float);
 
 //Execution Begins Here
 int main(int argc, char** argv) {
@@ -63,7 +64,7 @@ void Menu(){
     cout<<"Type 2 for problem 2"<<endl;
     cout<<"Type 3 for problem 3"<<endl;
     cout<<"Type 4 for problem 4"<<endl;
-    cout<<"Type 5 for problem 5"<<endl;
+    cout<<"Type 5 for problem 9"<<endl;
     cout<<"Type 6 for problem 6"<<endl;
     cout<<"Type 7 for problem 7"<<endl;
     cout<<"Type 8 for problem 8"<<endl;
@@ -148,18 +149,20 @@ void problem4(){
 }
 
 bool isPrime(int prime){
-    for(int i=2;i<=prime/2;i++)
+for(int i=2;i<=prime/2;i++)
     if(prime%i==0)
        return 0;
-return 1;
-    
+return 1; 
 }
 
 int problem5(){
+//Problem 9: isPrime Function
+    //Declare Variables
     int prime;
+    //Input Integer
     cout<<"Enter an integer to determine if it is prime.";
     cin>>prime;
-   
+   //Call isPrime Function and Display Result
     if (isPrime(prime)) {
        cout<<prime<<" is a prime number."<<endl;
     }
@@ -169,8 +172,24 @@ int problem5(){
     return 0; 
 }
 
+float presentValue(float future, float rate, float years){
+    float segment = 1.0 + rate;
+    float present = future/pow(segment,years);
+    cout<<"Present value: $"<<present<<endl; 
+}
+
 void problem6(){
-    
+    //Declare Variables 
+    float future, rate, years; 
+    cout<<"How much do you need to put into your savings account?"<<endl;
+    cout<<"Enter your desired 'future value.'"<<endl;
+    cin>>future;
+    cout<<"Enter the annual interest rate."<<endl;
+    cin>>rate;
+    cout<<"Enter the number of years you plan to have the money sit"
+            "in the account."<<endl;
+    cin>>years;
+    presentValue(future, rate, years);
 }
 void problem7(){
     
