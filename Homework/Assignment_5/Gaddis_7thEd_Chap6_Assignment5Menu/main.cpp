@@ -34,6 +34,7 @@ float fallingDistance(float);
 float kineticEnergy (float); 
 bool isPrime(int); 
 float presentValue(float);
+float stockProfit();
 
 //Execution Begins Here
 int main(int argc, char** argv) {
@@ -65,8 +66,8 @@ void Menu(){
     cout<<"Type 3 for problem 3"<<endl;
     cout<<"Type 4 for problem 4"<<endl;
     cout<<"Type 5 for problem 9"<<endl;
-    cout<<"Type 6 for problem 6"<<endl;
-    cout<<"Type 7 for problem 7"<<endl;
+    cout<<"Type 6 for problem 10"<<endl;
+    cout<<"Type 7 for problem 11"<<endl;
     cout<<"Type 8 for problem 8"<<endl;
     cout<<"Type 9 for problem 9"<<endl;
     cout<<"Type 10 for problem 10"<<endl;
@@ -186,12 +187,38 @@ void problem6(){
     cin>>future;
     cout<<"Enter the annual interest rate."<<endl;
     cin>>rate;
-    cout<<"Enter the number of years you plan to have the money sit"
+    cout<<"Enter the number of years you plan to have the money sit "
             "in the account."<<endl;
     cin>>years;
     presentValue(future, rate, years);
 }
+
+float stockProfit(float ns, float pp, float pc, float sp, float sc){
+    float profit = ((ns*sp)-sc)-((ns*pp)-pc); 
+    if (profit<0){
+        cout<<"Your losses: "<<profit<<endl;
+    }
+    else cout<<"Your profits: "<<profit<<endl; 
+}
+
 void problem7(){
+//Problem 11: Stock Profit
+    //Declare Variables
+    float ns, pp, pc, sp, sc; 
+    //ns=number of shares, pp=purchase price per share, pc=purchase commission,
+    //sp=sale price per share, sc=sale commission
+    cout<<"This program will help calculate the stock profit/loss."<<endl;
+    cout<<"Enter the number of shares."<<endl;
+    cin>>ns;
+    cout<<"Enter the purchase price per share."<<endl;
+    cin>>pp;
+    cout<<"Enter the purchase commission paid."<<endl;
+    cin>>pc;
+    cout<<"Enter the sale price per share."<<endl;
+    cin>>sp;
+    cout<<"Enter the sale commission."<<endl;
+    cin>>sc; 
+    stockProfit(ns, pp, pc, sp, sc); 
     
 }
 void problem8(){
