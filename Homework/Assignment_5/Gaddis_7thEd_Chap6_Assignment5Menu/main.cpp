@@ -36,7 +36,9 @@ bool isPrime(int);
 float presentValue(float);
 float stockProfit();
 float hospital();
-int nPopSize();
+float nPopSize();
+int orderInfo();
+int orderStatus();
 
 //Execution Begins Here
 int main(int argc, char** argv) {
@@ -70,8 +72,8 @@ void Menu(){
     cout<<"Type 5 for problem 9"<<endl;
     cout<<"Type 6 for problem 10"<<endl;
     cout<<"Type 7 for problem 11"<<endl;
-    cout<<"Type 8 for problem 8"<<endl;
-    cout<<"Type 9 for problem 9"<<endl;
+    cout<<"Type 8 for problem 14"<<endl;
+    cout<<"Type 9 for problem 15"<<endl;
     cout<<"Type 10 for problem 10"<<endl;
     cout<<"Type 11 to exit."<<endl; 
 }
@@ -81,11 +83,6 @@ int getN(){
         int inN;
         cin>>inN;
         return inN;
-}
-
-void calculateRetail(float items, float perct){
-//Problem 1 Retail Price Calculation
-    cout<<"The retail price is $"<<( items + (items*perct/100))<<endl; 
 }
 
 int problem1(){
@@ -103,9 +100,9 @@ int problem1(){
     return 0; 
 }
 
-float celsius(float i){
-//Conversion for Problem 2: fahrenheit to celsius
-    return (i-32)*(5.0/9.0); 
+void calculateRetail(float items, float perct){
+//Problem 1 Retail Price Calculation
+    cout<<"The retail price is $"<<( items + (items*perct/100))<<endl; 
 }
 
 int problem2(){
@@ -118,10 +115,9 @@ int problem2(){
     return 0; 
 }
 
-float fallingDistance(float time){
-//Conversion Function for Problem 3
-    float g = 9.8; //constant g 
-    return 0.5*g*(time*time); //calculate and display distance
+float celsius(float i){
+//Conversion for Problem 2: fahrenheit to celsius
+    return (i-32)*(5.0/9.0); 
 }
 
 void problem3(){
@@ -134,9 +130,10 @@ void problem3(){
     }
 }
 
-float kineticEnergy(float kg, float ms){ //ms means m/s 
-//Problem 4: calculate kinetic energy
-    cout<<"Kinetic Energy(J): "<<0.5*kg*ms*ms<<endl;
+float fallingDistance(float time){
+//Conversion Function for Problem 3
+    float g = 9.8; //constant g 
+    return 0.5*g*(time*time); //calculate and display distance
 }
 
 void problem4(){
@@ -151,11 +148,9 @@ void problem4(){
     kineticEnergy(mass, velocity); 
 }
 
-bool isPrime(int prime){
-for(int i=2;i<=prime/2;i++)
-    if(prime%i==0)
-       return 0;
-return 1; 
+float kineticEnergy(float kg, float ms){ //ms means m/s 
+//Problem 4: calculate kinetic energy
+    cout<<"Kinetic Energy(J): "<<0.5*kg*ms*ms<<endl;
 }
 
 int problem5(){
@@ -175,10 +170,12 @@ int problem5(){
     return 0; 
 }
 
-float presentValue(float future, float rate, float years){
-    float segment = 1.0 + rate;
-    float present = future/pow(segment,years);
-    cout<<"Present value: $"<<present<<endl; 
+bool isPrime(int prime){
+//Problem 9 determine if number is prime bool function 
+for(int i=2;i<=prime/2;i++)
+    if(prime%i==0)
+       return 0;
+return 1; 
 }
 
 void problem6(){
@@ -195,12 +192,11 @@ void problem6(){
     presentValue(future, rate, years);
 }
 
-float stockProfit(float ns, float pp, float pc, float sp, float sc){
-    float profit = ((ns*sp)-sc)-((ns*pp)-pc); 
-    if (profit<0){
-        cout<<"Your losses: "<<profit<<endl;
-    }
-    else cout<<"Your profits: "<<profit<<endl; 
+float presentValue(float future, float rate, float years){
+//Problem 10 calculate present value function 
+    float segment = 1.0 + rate;
+    float present = future/pow(segment,years);
+    cout<<"Present value: $"<<present<<endl; 
 }
 
 void problem7(){
@@ -223,15 +219,13 @@ void problem7(){
     stockProfit(ns, pp, pc, sp, sc);   
 }
 
-float hospital(float d, float r, float s, float m){
-    float daily = d*r; 
-    float total = daily + s + m; 
-    cout<<"Total: $"<<total<<endl;
-}
-
-float hospital(float service, float meds){
-    float total = service + meds;
-    cout<<"Total: $"<<total<<endl; 
+float stockProfit(float ns, float pp, float pc, float sp, float sc){
+//Problem 11 calculate stock profit and determine of profit or loss function
+    float profit = ((ns*sp)-sc)-((ns*pp)-pc); 
+    if (profit<0){
+        cout<<"Your losses: "<<profit<<endl;
+    }
+    else cout<<"Your profits: "<<profit<<endl; 
 }
 
 void problem8(){
@@ -268,19 +262,22 @@ void problem8(){
     }
     else cout<<"Invalid Input."<<endl; 
 }
-int nPopSize(float p, float b, float d, float y){
-    if (p<=2 || y<=1){
-        cout<<"Invalid input. Start population must be greater than 2"
-                "\nand years displayed must be greater than 1."<<endl;
-    }
-    else {
-        float newpop = p*((1+b)*(1-d));
-        float total = y*newpop;
-        cout<<"New Population for "<<y<<" years:"<<total<<endl; 
-    }
- }
+
+float hospital(float d, float r, float s, float m){
+//Problem 14 in-patient bill calculator 
+    float daily = d*r; 
+    float total = daily + s + m; 
+    cout<<"Total: $"<<total<<endl;
+}
+
+float hospital(float service, float meds){
+//Problem 14 out-patient bill calculator 
+    float total = service + meds;
+    cout<<"Total: $"<<total<<endl; 
+}
 
 void problem9(){
+//Problem 15: Population 
     //Declare Variables
     float start, birth, death, years; 
     //Input
@@ -294,9 +291,35 @@ void problem9(){
     cin>>years; 
     nPopSize(start, birth, death, years); 
 }
+
+float nPopSize(float p, float b, float d, float y){
+//Problem 15 new population size function 
+    if (p<=2 || y<=1){
+        cout<<"Invalid input. Start population must be greater than 2"
+                "\nand years displayed must be greater than 1."<<endl;
+    }
+    else {
+        float newpop = p*((1+b)*(1-d));
+        float total = y*newpop;
+        cout<<"New Population for "<<y<<" years:"<<total<<endl; 
+    }
+ }
+
 void problem10(){
+//Problem 13: Order Status
+    //Declare Variables
     
 }
+
+int orderInfo(){
+//Problem 13 ask for and store order data function
+    
+}
+
+int orderStatus(){
+//Problem 13 compute and display order info function   
+}
+
 void def(int inN){
     cout<<"You have exited the menu."<<endl;
 }
