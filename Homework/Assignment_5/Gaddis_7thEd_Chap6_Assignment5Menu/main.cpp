@@ -322,7 +322,7 @@ void problem10(){
     cin>>im;
     cout<<"Enter average yearly emigration."<<endl;
     cin>>em; 
-    numYears(start, birth, death, years); 
+    numYears(start, birth, death, years, im, em); 
 }
 
 float numYears(float p2, float b2, float d2, float y2, float im, float em){
