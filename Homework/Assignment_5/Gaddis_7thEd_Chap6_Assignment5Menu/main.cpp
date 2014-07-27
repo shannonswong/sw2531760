@@ -22,7 +22,7 @@ int problem1();
 int problem2();
 void problem3();
 void problem4();
-void problem5();
+int problem5();
 void problem6();
 void problem7();
 void problem8();
@@ -32,6 +32,7 @@ void calculateRetail(float);
 float celsius(float);
 float fallingDistance(float);
 float kineticEnergy (float); 
+bool isPrime(int); 
 
 //Execution Begins Here
 int main(int argc, char** argv) {
@@ -131,7 +132,7 @@ void problem3(){
 
 float kineticEnergy(float kg, float ms){ //ms means m/s 
 //Problem 4: calculate kinetic energy
-    cout<<"Kinetic Energy(j):"<<0.5*kg*ms*ms<<endl;
+    cout<<"Kinetic Energy(J): "<<0.5*kg*ms*ms<<endl;
 }
 
 void problem4(){
@@ -145,9 +146,29 @@ void problem4(){
     cin>>velocity; 
     kineticEnergy(mass, velocity); 
 }
-void problem5(){
+
+bool isPrime(int prime){
+    for(int i=2;i<=prime/2;i++)
+    if(prime%i==0)
+       return 0;
+return 1;
     
 }
+
+int problem5(){
+    int prime;
+    cout<<"Enter an integer to determine if it is prime.";
+    cin>>prime;
+   
+    if (isPrime(prime)) {
+       cout<<prime<<" is a prime number."<<endl;
+    }
+    else {
+       cout<<prime<<" is not a prime number."<<endl;
+    }
+    return 0; 
+}
+
 void problem6(){
     
 }
@@ -164,5 +185,5 @@ void problem10(){
     
 }
 void def(int inN){
-    
+    cout<<"You have exited the menu."<<endl;
 }
