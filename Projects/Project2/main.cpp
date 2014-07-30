@@ -193,27 +193,12 @@ int getB(){
 
 //scene B choice 1: Incorrect
 int choice1b(){ //left door incorrect
-	cout<<"You chose the left door."<<endl;
-	cout<<"You approach the door and unfortunately, you have chosen incorrectly."<<endl;
-	cout<<"You fall down a large chute and you are back where you started."<<endl;
-	char anything;
-	cout<<"Type anything to continue."<<endl;
-	cin>>anything; 
-	anything = gameover(); 
+	
 }
 
 //scene B choice 2: Correct
 int choice2b(){
-	cout<<"You chose the middle door."<<endl;
-	cout<<"Looks like you're correct. A screen lowers from the ceiling."<<endl;
-	cout<<"It says: 'It's time for a simple game.'"<<endl;
-	cout<<"A dice-rolling contraption comes out of the door."<<endl;
-	cout<<"'If you an even number within 10 games, you may proceed. It's a"
-			"terribly simple game of chance."<<endl;
-	cout<<"'Go ahead and roll the dice."<<endl;
-	char roll;
-	cin>>roll;
-	roll = dicegame();
+	
 }	
 //scene B choice 2: Game
 int dicegame(){ 
@@ -256,21 +241,12 @@ int dicegame(){
  
 //scene B choice 3: Incorrect
 int choice3b(){
-    cout<<"You choose the door on the right."<<endl;
-    cout<<"Type anything."<<endl;
-    char anything;
-    cin>>anything;
-    anything = gameover(); 
+    
 }
 
 //scene C 
 int sceneC(){
-    cout<<"ROOM C"<<endl;
-    cout<<"You proceed to the next scene. \nYou see three doors, again."<<endl;
-    cout<<"Which do you choose?"<<endl;
-    cout<<"[TYPE] 1: Left Door."<<endl; 
-    cout<<"[TYPE] 2: Middle Door."<<endl;
-    cout<<"[TYPE] 3: Right Door."<<endl; 
+    
 }
 
 //scene C Choice
@@ -282,66 +258,22 @@ int getC(){
 
 //scene C choice 1: Incorrect
 int choice1c(){
-    cout<<"You chose the left door."<<endl;
-    cout<<"You approach the door and unfortunately, you have chosen incorrectly."<<endl;
-    cout<<"You fall down a large chute and you are back where you started."<<endl;
-    char anything;
-    cout<<"Type anything to continue."<<endl;
-    cin>>anything; 
-    anything = gameover();     
+   
 }
 
 //scene C choice 2: Incorrect
 int choice2c(){
-    cout<<"You chose the middle door."<<endl;
-    cout<<"You approach the door and unfortunately, you have chosen incorrectly."<<endl;
-    cout<<"You fall down a large chute and you are back where you started."<<endl;
-    char anything;
-    cout<<"Type anything to continue."<<endl;
-    cin>>anything; 
-    anything = gameover(); 
+    
 }
 
 //scene C choice 3: Correct
 int choice3c(){
-    //Declare Variables
-    char response; //MC response
-    char anything, anything2; //to proceed
-    //Text
-    cout<<"You chose the last, right-hand door."<<endl;
-    cout<<"You chose correctly, again."<<endl;
-    cout<<"The screen says: 'Answer the following SAT Sentence"
-            "Completion question.'"<<endl;
-    cout<<"Because King Philip's desire to make Spain the dominant power in\n"
-            " sixteenth-century Europe ran counter to Queen Elizabeth's\n"
-            " insistence on autonomy for England ---- was ---."<<endl;
-    cout<<"A) reconciliation..assured"<<endl;
-    cout<<"B) warfare..avoidable"<<endl;
-    cout<<"C) ruination..impossible"<<endl;
-    cout<<"D) conflict..inevitable"<<endl; //correct
-    cout<<"E) diplomacy..simple"<<endl;
-    cout<<"Please enter a letter. Just one letter."<<endl;
-    cin>>response;
-    if (response == 'd' || response == 'D'){
-        cout<<"Correct. Type anything to proceed."<<endl;
-        cin>>anything;
-        anything = sceneD(); 
-    }
-    else{ 
-        cout<<"Incorrect. Sorry. Type anything to go back to the previous scene."<<endl;
-        cin>>anything2; 
-        anything2 = sceneB(); 
-    }    
+    
 } 
 
 //scene D
 int sceneD(){
-    cout<<"ROOM D"<<endl;
-    cout<<"Wow, you've made it pretty far."<<endl;
-    cout<<"Which do door do choose, now?"<<endl;
-    cout<<"[TYPE] 1: Left Door."<<endl; 
-    cout<<"[TYPE] 2: Middle Door."<<endl;
-    cout<<"[TYPE] 3: Right Door."<<endl;
+    
 }
 
 //scene D choice
@@ -353,55 +285,22 @@ int getD(){
 
 //scene D choice 1: Incorrect
 int choice1d(){
-    cout<<"You chose the left door."<<endl;
-    cout<<"You approach the door and unfortunately, you have chosen incorrectly."<<endl;
-    cout<<"You fall down a large chute and you are back where you started."<<endl;
-    char anything;
-    cout<<"Type anything to continue."<<endl;
-    cin>>anything; 
-    anything = gameover();     
+       
 }
 
 //scene D choice 2: Incorrect
 int choice2d(){
-    cout<<"You chose the middle door."<<endl;
-    cout<<"You approach the door and unfortunately, you have chosen incorrectly."<<endl;
-    cout<<"You fall down a large chute and you are back where you started."<<endl;
-    char anything;
-    cout<<"Type anything to continue."<<endl;
-    cin>>anything; 
-    anything = gameover(); 
+    
 }
 
 //scene D choice 3: Correct
 int choice3d(){
-    //Declare Variables
-    unsigned short response; 
-    char anything, anything2; 
-    cout<<"You chose the door on the right."<<endl;
-    cout<<"Turns out, you're correct. Yet again, a screen lowers."<<endl;
-    cout<<"It says: 'Solve the simple math problem.'"<<endl;
-    cout<<"Divide: 14256 / 2."<<endl;
-    unsigned short answer = 14256 / 2;
-    if (response == answer){
-        cout<<"Correct. Proceed."<<endl;
-        cin>>anything;
-        anything = sceneE(); 
-    }
-    else {
-        cout<<"Incorrect. Go back."<<endl;
-        cin>>anything2;
-        anything2 = sceneC(); 
-    }
+    
 }
 
 //scene E
 int sceneE(){
-    cout<<"ROOM E"<<endl;
-    cout<<"Well, which do door do choose, now?"<<endl;
-    cout<<"[TYPE] 1: Left Door."<<endl; 
-    cout<<"[TYPE] 2: Middle Door."<<endl;
-    cout<<"[TYPE] 3: Right Door."<<endl;
+    
 }
 
 //scene E choice
@@ -413,43 +312,17 @@ int getE(){
 
 //scene E choice 1: Incorrect
 int choice1e(){
-    cout<<"You chose the left door."<<endl;
-    cout<<"You approach the door and unfortunately, you have chosen incorrectly."<<endl;
-    cout<<"You fall down a large chute and you are back where you started."<<endl;
-    char anything;
-    cout<<"Type anything to continue."<<endl;
-    cin>>anything; 
-    anything = gameover();     
+     
 }
 
 //scene E choice 2: Correct
 int choice2e(){
-    float response;
-    float degF = 9*23.0/5.0+32.0;
-    cout<<"Correct door."<<endl;
-    cout<<"The screen says: 'So, do you know how to convert 23 degrees"
-            "Celsius to degrees Fahrenheit? Then please do so now."<<endl;
-    cin>>response; 
-    cout<<"Answer: "<<degF<<endl;
-    if (response == degF){
-        cout<<"Correct. Proceed"<<endl;
-        youwin();
-    }
-    else {
-        cout<<"Incorrect. Start from previous scene."<<endl;
-        sceneD(); 
-    }
+    
 }
 
 //scene E choice 3: Incorrect
 int choice3e(){
-    cout<<"You chose the door on the right."<<endl;
-    cout<<"You approach the door and unfortunately, you have chosen incorrectly."<<endl;
-    cout<<"You fall down a large chute and you are back where you started."<<endl;
-    char anything;
-    cout<<"Type anything to continue."<<endl;
-    cin>>anything; 
-    anything = gameover(); 
+   
 }
 
 //The End--You Win
