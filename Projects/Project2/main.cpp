@@ -4,6 +4,7 @@
  * 
  * Created on July 26, 2014, 2:39 PM
  */
+
 //System Libraries
 #include <cstdlib>
 #include <iostream>
@@ -137,7 +138,7 @@ int choice2a(){
 //Declare variables
     char something;
     int anything; 
-//choice1b story
+//choice2a story
     cout<<"You head to the door."<<endl;
     cout<<"You try to open the door but unfortunately, it is locked"
             "from the outside."<<endl;
@@ -164,20 +165,41 @@ int choice2a(){
 }
 
 int choice3a(){
-    cout<<endl; 
+//Declare variables
+    char something;
+    int anything; 
+//choice3a story
+    cout<<"You investigate your bed.\n"
+            "Although you search all over the bed, you find nothing."<<endl;
+    cout<<"Type something to continue."<<endl;
+    cin>>something;
+    cout<<"--------------CHOICES--------------"<<endl;
+    cout<<"[TYPE] 1: Go to the desk"<<endl;
+    cout<<"[TYPE] 2: Try to open the door."<<endl;
+    cout<<"-------"<<endl;
+    cout<<"[TYPE] 4: Go back to sleep."<<endl;
+    if (anything != 1 && anything !=2 && anything !=4){
+        cout<<"Invalid choice."<<endl; 
+    }
+    do{
+    switch (anything){
+        case 1: choice1a();break;
+        case 2: choice2a();break;
+        case 3: choice3a();break;
+        default:;
+    };
+    }
+    while (anything == 1 || anything == 2 || anything == 4);
 }
 
 int choice4a(){
-    cout<<endl;
-}
-
-void def(int anything2a){
 //Declare variables
-    char anything2a;
-//The Oopsie Speech
-    cout<<"Invalid choice. Type anything to try again."<<endl;
-    cin>>anything2a;
-    anything2a = choice2a(); 
+    char anything;
+//choice4a story
+    cout<<"You go back to sleep."<<endl;
+    cout<<"Type anything to continue."<<endl;
+    cin>>anything
+    anything = gameover(); 
 }
 
 int sceneB(){
