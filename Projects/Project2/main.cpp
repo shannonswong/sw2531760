@@ -46,6 +46,7 @@ int inA;
             case 1: choice1a();break; //choice 1 scene A
             case 2: choice2a();break; //choice 2 scene A
             case 3: choice3a();break; //choice 3 scene A
+            case 4: choice4a();break; //choice 4 scene A
             default:;
         };
 //scene B
@@ -96,6 +97,7 @@ int sceneA(){
     cout<<"------------------------------------"<<endl;
     cout<<"You suddenly awake and realize that you are in a"
             " mysteriously unfamiliar room."<<endl;
+    cout<<"You're laying down on a bed, facing the door."<<endl;
     cout<<"The room is dimly lit by a stub of a flickering candle that rests "
             "upon the only piece of furniture in the room--a small,"
             " wooden desk."<<endl;
@@ -104,8 +106,9 @@ int sceneA(){
     cout<<"You have decisions to make, now. Which do you choose?"<<endl;
     cout<<"--------------CHOICES--------------"<<endl;
     cout<<"[TYPE] 1: Go to the desk"<<endl;
-    cout<<"[TYPE] 2: Investigate your bed."<<endl;
-    cout<<"[TYPE] 3: Go back to sleep."<<endl;
+    cout<<"[TYPE] 2: Try to open the door."<<endl;
+    cout<<"[TYPE] 3: Investigate your bed."<<endl;
+    cout<<"[TYPE] 4: Go back to sleep."<<endl;
 }
 
 //scene A Choice
@@ -115,63 +118,70 @@ int getA(){
         return inA;
 }
 
-//scene A choice 1: The correct door with a simple question 
+//scene A choice 1: desk 
 int choice1a(){
-    int answer; 
-    cout<<"You choose the door on the left."<<endl;
-    cout<<"When you approach the door, a small screen suddenly descends from"
-            "the ceiling."<<endl;
-    cout<<"A message appears."<<endl;
-    cout<<"Congratulations, you chose the correct door. Now please answer the "
-            "question to proceed."<<endl;
-    cout<<"What is 1+1?"<<endl;
-    cin>>answer;
-    if (answer == 2){
-        cout<<"DING! Correct. Type anything to proceed."<<endl;
-        char anything;
-        cin>>anything; 
-        anything = sceneB(); 
-    }
-    else { //redirect
-        char answer2;
-        cout<<"Incorrect."<<endl;
-        cout<<"Type anything"<<endl;
-        cin>>answer2;
-        answer2 = gameover();
-        }
+//declare variables
+    char anything; 
+//choice1a story 
+    cout<<"You get up and head on over to the desk."<<endl;
+    cout<<"You see that there is a key next to the candle."<<endl;
+    cout<<"Well, that was easy. What next?"<<endl;
+    cout<<"Type anything to continue."<<endl;
+    cin>>anything;
+    anything = sceneB(); 
+    
 }
 
-//scene A choice 2: The incorrect door 
+//scene A choice 2: door 
 int choice2a(){
-    cout<<"You choose the door on the right."<<endl;
-    cout<<"Unfortunately, when you go to open the door, you fall into a large"
-            "chute and end up where you started."<<endl;
-    cout<<"Type anything."<<endl;
-    char answer;
-    cin>>answer;
-    answer = gameover(); 
+//Declare variables
+    char something;
+    int anything; 
+//choice1b story
+    cout<<"You head to the door."<<endl;
+    cout<<"You try to open the door but unfortunately, it is locked"
+            "from the outside."<<endl;
+    cout<<"Type something to continue."<<endl;
+    cin>>something; 
+    cout<<"--------------CHOICES--------------"<<endl;
+    cout<<"[TYPE] 1: Go to the desk"<<endl;
+    cout<<"---------"<<endl;
+    cout<<"[TYPE] 3: Investigate your bed."<<endl;
+    cout<<"[TYPE] 4: Go back to sleep."<<endl;
+    cin>>anything; 
+    if (anything != 1 && anything !=3 && anything !=4){
+        cout<<"Invalid choice."<<endl; 
+    }
+    do{
+    switch (anything){
+        case 1: choice1a();break;
+        case 2: choice2a();break;
+        case 3: choice3a();break;
+        default:;
+    };
+    }
+    while (anything == 1 || anything == 3 || anything == 4);
 }
 
-//scene A choice 3: I'm not sure why this is here but hey
 int choice3a(){
-    cout<<"You give up."<<endl;
-    cout<<"Type anything."<<endl; 
-    char answer;
-    cin>>answer;
-    answer = gameover(); 
+    cout<<endl; 
 }
 
-//scene B Menu 
+int choice4a(){
+    cout<<endl;
+}
+
+void def(int anything2a){
+//Declare variables
+    char anything2a;
+//The Oopsie Speech
+    cout<<"Invalid choice. Type anything to try again."<<endl;
+    cin>>anything2a;
+    anything2a = choice2a(); 
+}
+
 int sceneB(){
-    cout<<"ROOM B"<<endl;
-    cout<<"You proceed into the next scene. \nThe scene appears to be the same size"
-            "but the walls have colorful polka dots. \nThere are three doors."<<endl;
-    cout<<"A banner drops down from the ceiling."<<endl;
-    cout<<"It says: 'It's time for a game.'"<<endl;
-    cout<<"Which do you choose?"<<endl;
-    cout<<"[TYPE] 1: Left Door."<<endl; 
-    cout<<"[TYPE] 2: Middle Door."<<endl;
-    cout<<"[TYPE] 3: Right Door."<<endl; 
+    
 }
 
 //scene B Choice
