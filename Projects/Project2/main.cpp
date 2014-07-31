@@ -600,7 +600,45 @@ int getF(){
 }    
 
 int sceneF(){
-    
+    cout<<"More doors!"<endl;
+    cout<<"--------------CHOICES--------------"<<endl;
+    cout<<"[TYPE] 1: door on the left."<<endl;
+    cout<<"[TYPE] 2: door in the middle."<<endl;
+    cout<<"[TYPE] 3: door on the right."<<endl;
+}
+
+int choice1f(){
+    cout<<"Wrong."<<endl;
+    cout<<"Type anything to continue."<<endl;
+    char anything;
+    cin>>anything;
+    anything = sceneF();
+}
+
+int choice2f(){
+    cout<<"Whoa, you're right! What we're gonna do now is that I'm going\n"
+            " to have this table of random numbers and you enter them \n"
+            "into the door, okay?"<<endl;
+int temp[3][2];
+        cout<<"We will produce some random numbers and you must enter"
+        "them into the door."<<endl; 
+            for (int i = 0; i < 2; i++)
+                {
+            for (int j = 0; j < 3; j++)
+            {
+            temp[i][j] = 20+ rand() % 100;
+            cout << temp[i][j] << endl;
+    }
+}
+//Declare Variables
+    const int NUMBERS = 6; //size 6
+    int num[NUMBERS], x =0; /
+//Prompt User to Input Numbers
+    cout << "Enter the numbers: \n";
+    for (int x = 0; x < NUMBERS; x++)
+        {
+            cin >> num[x]; //user enters numbers
+        }
 }
     
 
