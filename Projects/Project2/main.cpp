@@ -11,15 +11,16 @@
 #include <iomanip>
 #include <ctime>
 #include <cmath>
+#include <string>
+#include <fstream>
 using namespace std;
 
 //Global Constants
-
+const int COLS=5; 
 
 //Function Prototypes
 int sceneA(); //scene A
 int getA(); //scene A
-void def(int); //default
 int choice1a(); //choice 1 scene A
 int choice2a(); //choice 2 scene A
 int choice3a(); //choice 3 A
@@ -51,19 +52,24 @@ int getF(); //scene F
 int choice1f(); //choice 1 scene F
 int choice2f(); //choice 2 scene F
 int choice3f(); //choice 3 F
-int youwin(); //the end
+void fill_Array(int [][COLS],int); //fill array 
+void print_Array(const int [][COLS],int); //print 2d array 
+int  minimum(const int [][COLS],int); //find min
+int  maximum(const int [][COLS],int); //find max
+int youwin(); //the end 
 int gameover(); //game over
-
+    //Default?
+void def(int); //default
 
 //Execution Begins Here: 
 int main() {
 //Intro
-    char enter;
-    cout<<"Welcome to the Tiny Adventure. \nYou will be navigating through"
-            "perilous obstacles to reach your ultimate goal."
+    string yourname[1];
+    cout<<"Welcome to the Tiny Adventure. \nYou will be navigating through "
+            "perilous \nobstacles to reach your ultimate goal."
             "\nAre you up for the challenge?"<<endl;
-    cout<<"If so, type anything to continue."<<endl;
-    cin>>enter;
+    cout<<"If so, enter your name to continue."<<endl;
+    getline(cin,yourname[0]); 
     
      //Set the random seed for later
     srand(static_cast<unsigned int>(time(0)));
@@ -135,13 +141,13 @@ int inF;
 //scene A story
 int sceneA(){
     cout<<"------------------------------------"<<endl;
-    cout<<"You suddenly awake and realize that you are in a"
+    cout<<"You suddenly awake and realize \nthat you are in a"
             " mysteriously unfamiliar room."<<endl;
     cout<<"You're laying down on a bed, facing the door."<<endl;
-    cout<<"The room is dimly lit by a stub of a flickering candle that rests "
-            "upon the only piece of furniture in the room--a small,"
+    cout<<"The room is dimly lit by a stub of a \nflickering candle that rests "
+            "upon the only piece of \nfurniture in the room--a small,"
             " wooden desk."<<endl;
-    cout<<"Well, there is also the uncomfortably stiff bed you happen"
+    cout<<"Well, there is also the uncomfortably \nstiff bed you happen"
             "to be laying on, but that's it."<<endl;
     cout<<"You have decisions to make, now. Which do you choose?"<<endl;
     cout<<"--------------CHOICES--------------"<<endl;
@@ -179,7 +185,7 @@ int choice2a(){
     int anything; 
 //choice2a story
     cout<<"You head to the door."<<endl;
-    cout<<"You try to open the door but unfortunately, it is locked"
+    cout<<"You try to open the door but unfortunately, \nit is locked "
             "from the outside."<<endl;
     cout<<"Type something to continue."<<endl;
     cin>>something; 
@@ -307,24 +313,30 @@ int choice3b(){
     char anything;
     cout<<"You search the room. Since the door is locked, you try to look"
             "\n for something else to unlock. \nThere is a small door behind your"
-            "bed. \nYou successfully unlock the door and enter."<<endl;
+            " bed. \nYou successfully unlock the door and enter."<<endl;
     cout<<"You see that you're in a very large and much brighter room."
             "\nThe room's walls are a rather vibrant shade of purple\n"
             "with plush carpet that matched. \nHowever, you see that there"
-            "is nothing in the room besides a small desk and three doors."
+            " is nothing in the room besides a \nsmall desk and three doors.\n"
             "What's up with all these empty rooms?"<<endl;
     cout<<"(Type anything to continue.)"<<endl;
     cin>>anything; 
     anything = sceneC();
 }
 
+int getC(){
+        int inC;
+        cin>>inC;
+        return inC;
+}
+
 int sceneC(){
-    cout<<"You head on over to the desk. On it are pieces of neatly folded"
-            "stationary. You pick the first page up to read it."<<endl;
-    cout<<"It says: Hello, I'm glad you made it this far. I know you"
-            "\nwant to escape but you just have to go \nthrough this..."
-            "security system I set up. Yes, that's how it is"
-            "around these parts. Now, choose a door and choose wisely."<<endl;
+    cout<<"You head on over to the desk. On it are pieces \nof neatly folded"
+            "stationary. \nYou pick the first page up to read it."<<endl;
+    cout<<"It says: Hello, I'm glad you made it this far. I know you\n"
+            "want to escape but you just have to go \nthrough this..."
+            "security system I set up. \nYes, that's how it is"
+            " around these parts. \nNow, choose a door and choose wisely."<<endl;
     cout<<"You look to the doors. There are three to choose from."<<endl; 
     cout<<"--------------CHOICES--------------"<<endl;
     cout<<"[TYPE] 1: door on the left."<<endl;
@@ -336,7 +348,7 @@ int choice1c(){
     char anything;
     int enter;
     cout<<"You chose the door on the left. It opens but it's just an"
-            "\empty closet."<<endl;
+            "\nempty closet."<<endl;
     cout<<"Type anything to continue."<<endl;
     cin>>anything; 
     cout<<"--------------CHOICES--------------"<<endl;
@@ -368,7 +380,7 @@ int choice2c(){
     cout<<"You go to the door with your answer."<<endl;
     cout<<"There is a blank panel. You trace "<<answer<<" on it."<<endl;
     if (answer==300){
-        cout<<"Although you can't see how it happened, the door suddenly"
+        cout<<"Although you can't see how it happened, \nthe door suddenly "
                 "clicks and opens magically."<<endl;
         cout<<"Type anything to continue."<<endl;
         cin>>anything; 
@@ -377,7 +389,7 @@ int choice2c(){
     else if (answer != 300){ 
         cout<<"Incorrect. Type anything to continue."<<endl;
         cin>>anything;
-        anything = sceneC();        
+        anything = gameover();        
     }
 }
     
@@ -385,7 +397,7 @@ int choice3c(){
   char anything;
     int enter;
     cout<<"You chose the door on the right. It opens but it's just an"
-            "\empty closet."<<endl;
+            "\nempty closet."<<endl;
     cout<<"Type anything to continue."<<endl;
     cin>>anything; 
     cout<<"--------------CHOICES--------------"<<endl;
@@ -410,7 +422,7 @@ int getD(){
 
 int sceneD(){
     cout<<"You manage to enter the next room. Good job."<<endl;
-    cout<<"Now you go to choose one of the three doors, as you"
+    cout<<"Now you go to choose one of the three doors, as you "
             "did before."<<endl;
     cout<<"--------------CHOICES--------------"<<endl;
     cout<<"[TYPE] 1: door on the left."<<endl;
@@ -420,13 +432,14 @@ int sceneD(){
 
 int choice1d(){
     char roll;
-    cout<<"You approach the door and dice magically emerge"
+    cout<<"You approach the door and dice magically emerge "
             "from the center of it."<<endl;
-    cout<<"A voice says: You chose wisely. However, being wise won't"
+    cout<<"A voice says: You chose wisely. \nHowever, being wise won't"
             "be to your advantage in this game."<<endl;
-    cout<<"If you manage to roll a more even sums than odd, then"
+    cout<<"If you manage to roll a more \neven sums than odd, then "
             "you may proceed."<<endl;
-    cout<<"Go ahead and roll the die. (Don't worry they'll stay floating."<<endl;
+    cout<<"Go ahead and roll the die. (Don't worry they'll stay floating.)"<<endl;
+    cout<<"[TYPE A CHARACTER TO ROLL]"<<endl;
     cin>>roll;
     roll = dicegame(); 
 }
@@ -435,7 +448,7 @@ int choice2d(){
     char anything;
     int enter;
     cout<<"You chose the door on the right. It opens but it's just an"
-            "\empty closet."<<endl;
+            "\nempty closet."<<endl;
     cout<<"Type anything to continue."<<endl;
     cin>>anything;
      cout<<"--------------CHOICES--------------"<<endl;
@@ -456,7 +469,7 @@ int  choice3d(){
     char anything;
     int enter;
     cout<<"You chose the door in the middle. It opens but it's just an"
-            "\empty closet."<<endl;
+            "\nempty closet."<<endl;
     cout<<"Type anything to continue."<<endl;
     cin>>anything;
     cout<<"--------------CHOICES--------------"<<endl;
@@ -476,7 +489,7 @@ int  choice3d(){
 int dicegame(){
 //Declare variables
 int wins=0, loss=0;
-for(int game=1;game<=5;game++){
+for(int game=1;game<=7;game++){
         //Roll dice
         char die1=rand()%6+1;
         char die2=rand()%6+1;
@@ -502,12 +515,18 @@ for(int game=1;game<=5;game++){
     }
     else if (loss>wins){
         cout<<"Sorry. You did not win."<<endl;
-        cout<<"You must return to the previous room."<<endl;
-     cout<<"Type anything to proceed."<<endl;
-     char anything2;
-     cin>>anything2;
-     anything2 = sceneD();
+        cout<<"Type anything to proceed."<<endl;
+        char anything2;
+        cin>>anything2;
+        anything2 = gameover();
     }   
+//Writing to a File
+    ofstream outFile;
+    outFile.open("results.txt");
+    outFile<<cout<<"Results:"<<endl;
+    outFile<<cout<<"Losses: "<<loss<<endl;
+    outFile<<cout<<"Wins: "<<wins<<endl; 
+    outFile.close(); 
 }
 
 int getE(){
@@ -529,7 +548,7 @@ int choice1e(){
     char anything;
     int enter;
     cout<<"You chose the door on the left. It opens but it's just an"
-            "\empty closet."<<endl;
+            "\nempty closet."<<endl;
     cout<<"Type anything to continue."<<endl;
     cin>>anything;
     cout<<"--------------CHOICES--------------"<<endl;
@@ -550,7 +569,7 @@ int choice2e(){
     char anything;
     int enter;
     cout<<"You chose the door in the middle. It opens but it's just an"
-            "\empty closet."<<endl;
+            "\nempty closet."<<endl;
     cout<<"Type anything to continue."<<endl;
     cin>>anything;
    cout<<"--------------CHOICES--------------"<<endl;
@@ -573,24 +592,24 @@ int choice3e(){
     cout<<"You choose the door on the right."<<endl;
     cout<<"You approach the door and a voice congratulates you."<<endl;
     cout<<"Ah, you chose wisely once again! Now you must answer another"
-            " problem that will be slightly tougher than the first one."<<endl;
-    cout<<"Determine the kinetic energy of a 625-kg roller "
-            " coaster car that is moving with a speed of 18.3 m/s."<<endl;
+            " problem. \nA simple physics problem."<<endl;
+    cout<<"Determine the kinetic energy of a 625-kg roller \n"
+            "coaster car that is moving \nwith a speed of 18.3 m/s."<<endl;
     //Calculate answer to  check
-    float ke = 0.5*625*(18.3^2);
+    float ke = 0.5*625*(18.3*18.3);
     cin>>answer; 
-    if (answer==1.05e5){
-        cout<<"The answer is "<<ke<<" and you entered "<<answer<<"which"
-                " happens to be correct."<<endl;
+    if (answer==1.05e5 || answer==ke){
+        cout<<"The answer is "<<ke<<" and you entered "<<answer<<" which"
+                " happens to be about correct."<<endl;
         cout<<"Type anything to continue."<<endl;
         cin>>anything; 
         anything = sceneF();
     }
-    else if (answer != 1.05e5){ 
+    else { 
         cout<<"Incorrect. Type anything to continue."<<endl;
         cin>>anything;
-        anything = sceneF();        
-}
+        anything = gameover();        
+    }
 }
   
 int getF(){
@@ -600,7 +619,7 @@ int getF(){
 }    
 
 int sceneF(){
-    cout<<"More doors!"<endl;
+    cout<<"More doors!"<<endl;
     cout<<"--------------CHOICES--------------"<<endl;
     cout<<"[TYPE] 1: door on the left."<<endl;
     cout<<"[TYPE] 2: door in the middle."<<endl;
@@ -608,27 +627,138 @@ int sceneF(){
 }
 
 int choice1f(){
-    cout<<"Wrong."<<endl;
-    cout<<"Type anything to continue."<<endl;
     char anything;
+    int enter;
+    cout<<"You chose the door on the left. It opens but it's just an"
+            "\nempty closet."<<endl;
+    cout<<"Type anything to continue."<<endl;
     cin>>anything;
-    anything = sceneF();
+    cout<<"--------------CHOICES--------------"<<endl;
+    cout<<"--------"<<endl;
+    cout<<"[TYPE] 2: door in the middle."<<endl;
+    cout<<"[TYPE] 3: door on the right."<<endl;
+    cin>>enter;
+    if (enter==2){
+        choice2e();
+    }
+    else if (enter==3){
+        choice3e();
+    }
+    else cout<<"Invalid choice."<<endl;
 }
 
 int choice2f(){
-    cout<<endl;
+    char anything;
+    int enter;
+    cout<<"You chose the door in the middle. It opens but it's just an"
+            "\nempty closet."<<endl;
+    cout<<"Type anything to continue."<<endl;
+    cin>>anything;
+   cout<<"--------------CHOICES--------------"<<endl;
+    cout<<"[TYPE] 1: door on the left."<<endl;
+    cout<<"--------"<<endl;
+    cout<<"[TYPE] 3: door on the right."<<endl;
+    cin>>enter;
+    if (enter==1){
+        choice1e();
+    }
+    else if (enter==3){
+        choice3e();
+    }
+    else cout<<"Invalid choice."<<endl; 
 }
 
 int choice3f(){
-    cout<<endl;
+    cout<<"You approach the door and it is correct."<<endl;
+//Declare array and max size
+    const int MAXROWS=3;
+    int array[MAXROWS][COLS];
+    int actSize=3; 
+    int max, min; //max and min of array
+    fill_Array(array,actSize); //fill array
+    print_Array(array,actSize); //print array
+    int ans1, ans2; //user answers
+//Door question
+    cout<<"Now what are the min and the max of these random values?"<<endl; 
+    cout<<"Min: "<<endl;
+    cin>>ans1;
+    cout<<"Max: "<<endl;
+    cin>>ans2; 
+//Max and min are
+    max=maximum(array,actSize);
+    min=minimum(array,actSize);
+//Can player proceed?
+    if (ans1==min && ans2==max){
+        cout<<"Type anything to continue."<<endl;
+        char anything;
+        cin>>anything;
+        youwin();
+    }
+    else {
+        char anything; 
+        cout<<"Sorry incorrect."<<endl;
+        cout<<"Type anything to continue."<<endl;
+        cin>>anything;
+        anything = gameover(); 
+    }
 }
-    
 
+int minimum(const int a[][COLS],int n){
+    int mn=a[0][0];
+    //Loop for the sum and max/min
+    for(int row=0;row<n;row++){
+        for(int col=0;col<COLS;col++){
+            if(mn>a[row][col])mn=a[row][col];
+        }
+    }
+    return mn;    
+}
+
+int maximum(const int a[][COLS],int n){
+    int mx=a[0][0];
+    //Loop for the sum and max/min
+    for(int row=0;row<n;row++){
+        for(int col=0;col<COLS;col++){
+            if(mx<a[row][col])mx=a[row][col];
+        }
+    }
+    return mx;    
+}
+
+void print_Array(const int a[][COLS],int n){
+    //Declare any variables
+    cout<<endl<<endl;
+    for(int row=0;row<n;row++){
+        for(int col=0;col<COLS;col++){
+            cout<<a[row][col]<<" ";
+        }
+        cout<<endl;
+    }
+    cout<<endl<<endl;
+}
+
+void fill_Array(int a[][COLS],int n){
+    for(int row=0;row<n;row++){
+        for(int col=0;col<COLS;col++){
+            a[row][col]=rand()%90+10;
+        }
+    }
+}
 //The End--You Win
 int youwin(){
-    cout<<"Congrats. You made it to the end. Now, what?"<<endl;
+//    string STRING;
+//	ifstream infile;
+//	infile.open ("fireworks.txt");
+//        while(!infile.eof) 
+//        {
+//	    getline(infile,STRING); 
+//	    cout<<STRING; 
+//        }
+//	infile.close();
+    cout<<"Wow. Congrats. You made it to the end."<<endl;
     exit(0); 
 }
+
 
 //Game Over
 int gameover(){
@@ -644,7 +774,8 @@ int gameover(){
 }
 
 //Default 
-void def(int inA){
+void def(int inA, int inB, int inC, int inD, int inE, int inF){
     cout<<"You exited the game."<<endl;
     exit(0);
 }
+
