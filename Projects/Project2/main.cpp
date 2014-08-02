@@ -740,7 +740,7 @@ void print_Array(const int a[][COLS],int n){
 void fill_Array(int a[][COLS],int n){
     for(int row=0;row<n;row++){
         for(int col=0;col<COLS;col++){
-            a[row][col]=rand()%90+10;
+            a[row][col]=rand()%3+5;
         }
     }
 }
@@ -778,4 +778,3 @@ void def(int inA, int inB, int inC, int inD, int inE, int inF){
     cout<<"You exited the game."<<endl;
     exit(0);
 }
-
